@@ -25,8 +25,8 @@ const DUMMY_DATA = [
 		price: 'S$ 2,028'
 	}
 ];
-let item = DUMMY_DATA;
 
+const data = DUMMY_DATA.map((item) => <CartItem data={item} key={item.id} />);
 const CartIconContainer = styled.div((props) => ({
 	position: 'relative'
 }));
@@ -46,7 +46,7 @@ const CartIcon = () => {
 				{/* 
             Tip: .map() over the DUMMY_DATA here and mount <CartItem data={item} /> components 
           */}
-				<CartItem data={item} />
+				{data}
 			</Popover>
 		</CartIconContainer>
 	);

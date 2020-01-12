@@ -39,10 +39,17 @@ const CartIcon = () => {
 		<CartIconContainer>
 			<div onClick={() => setIsActive(!isActive)}>
 				<IconCart />
-				<BadgeRound>1</BadgeRound>
+				<BadgeRound>2</BadgeRound>
 			</div>
-			<Popover isVisible={isActive} onClose={() => setIsActive(false)}>
-				Remove this text
+			<Popover isVisible={true} onClose={() => setIsActive(false)}>
+				{DUMMY_DATA.map((el) => (
+					<div>
+						<img src={el.thumbnail} />
+						<li>{el.title}</li>
+						<li>{el.artist}</li>
+						<li>{el.price}</li>
+					</div>
+				))}
 				{/* 
             Tip: .map() over the DUMMY_DATA here and mount <CartItem data={item} /> components 
           */}

@@ -29,8 +29,38 @@ const DUMMY_DATA = [
 
 const data = DUMMY_DATA.map((item) => <CartItem data={item} key={item.id} />);
 
+function findSubtotalPrice(cartItems) {
+	const prices = cartItems.map((item) => {
+		return item.price;
+	});
+
+	let numericalPrices = prices.map((price) => parseInt(price.split('$')[1].replace(',', '')));
+
+	let sum = numericalPrices.reduce((a, b) => a + b, 0);
+	let sumString = sum.toString();
+	if (sumString.length > 3) {
+		var subtotal = 'S$ ' + sumString.slice(0, sumString.length - 3) + ',' + sumString.slice(-3);
+	}
+	return subtotal;
+}
+
 const CartIconContainer = styled.div((props) => ({
 	position: 'relative'
+}));
+
+const ItemsInCart = styled.div((props) => ({
+	color: 'rgb(76, 76, 76)',
+	textAlign: 'center',
+	paddingBottom: '0.3em',
+	borderBottom: '1px solid rgb(200, 175, 106)',
+	marginBottom: 0
+}));
+
+const Subtotal = styled.div((props) => ({
+	display: 'flex',
+	justifyContent: 'space-between',
+	fontSize: '15px',
+	letterSpacing: '0.04em'
 }));
 
 const CartIcon = () => {
@@ -45,21 +75,18 @@ const CartIcon = () => {
 				<BadgeRound>2</BadgeRound>
 			</div>
 			<Popover isVisible={true} onClose={() => setIsActive(false)}>
-				<p
-					style={{
-						color: 'rgb(76, 76, 76)',
-						textAlign: 'center',
-						paddingBottom: '1.5em',
-						borderBottom: '1px solid rgb(200, 175, 106)',
-						marginBottom: 0
-					}}>
-					{data.length} items in your cart
-				</p>
+				<ItemsInCart>
+					<p>{data.length} items in your cart</p>
+				</ItemsInCart>
 				{/* 
             Tip: .map() over the DUMMY_DATA here and mount <CartItem data={item} /> components 
           */}
 				{data}
-				<p>Subtotal</p>
+				<Subtotal>
+					<p>Subtotal</p>
+					<p>{findSubtotalPrice(DUMMY_DATA)}</p>
+				</Subtotal>
+
 				<GoToCartButton>Go to Cart</GoToCartButton>
 			</Popover>
 		</CartIconContainer>

@@ -1,45 +1,55 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+const Item = styled.div((props) => ({
+	borderBottom: '1px solid #EFEFEF',
+	padding: '18px 0',
+	height: '75px',
+	[`:hover`]: { cursor: 'pointer' }
+}));
+
+const ItemText = styled.div((props) => ({
+	height: '75px',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'space-around',
+	fontSize: '15px',
+	letterSpacing: '0.04em',
+	margin: 0,
+	padding: 0,
+	['p']: { margin: 0 }
+}));
 const imgStyle = {
 	width: '30%',
 	border: '1px solid #EFEFEF',
 	float: 'left',
-	margin: '0 8px 0 6px'
-};
-const pStyle = {
-	margin: 0,
-	padding: 0,
-	fontSize: '15px',
-	letterSpacing: '0.04em'
+	marginRight: '8px'
 };
 const priceStyle = {
 	margin: 0,
 	padding: 0,
 	fontSize: '15px',
-	letterSpacing: '0.03em',
+	letterSpacing: '0.04em',
 	textAlign: 'right'
-};
-const divStyle = {
-	borderBottom: '1px solid #EFEFEF',
-	padding: '18px 0',
-	height: '75px'
 };
 
 const CartItem = (props) => {
 	const { data } = props;
-	console.log(data);
 
 	// use the keys in the DUMMY_DATA objects to render a nice CartItem here
 	return (
-		<div style={divStyle}>
+		<Item>
 			<img
 				src={data.thumbnail}
 				alt={'Thumbnail image of ' + data.title + ' by ' + data.artist}
 				style={imgStyle}
 			/>
-			<p style={pStyle}>{data.title}</p>
-			<p style={pStyle}>{data.artist}</p>
-			<p style={priceStyle}>{data.price}</p>
-		</div>
+			<ItemText>
+				<p>{data.title}</p>
+				<p>{data.artist}</p>
+				<p style={priceStyle}>{data.price}</p>
+			</ItemText>
+		</Item>
 	);
 };
 

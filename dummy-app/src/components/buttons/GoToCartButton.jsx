@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 
 const GoToCartButton = styled.div((props) => ({
 	backgroundColor: props.theme.colors.primary,
-	width: '90%',
+	width: '98%',
+	marginRight: 0,
 	height: '45px',
 	borderRadius: '5px',
 	border: '2px solid white',
@@ -12,7 +13,8 @@ const GoToCartButton = styled.div((props) => ({
 	justifyContent: 'center',
 	alignItems: 'center',
 	textTransform: 'uppercase',
-	color: 'white'
+	color: 'white',
+	[`:hover`]: { opacity: 0.8, cursor: 'pointer' }
 }));
 
 export default GoToCartButton;

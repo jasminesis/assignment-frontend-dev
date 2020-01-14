@@ -1,3 +1,4 @@
 export function getCurrentLocale(url) {
-  // your code here. have fun!
+    let language = url.split('/')[1]
+    return language == "zh-cn" ? 'zh-cn' : 'en';
 }

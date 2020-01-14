@@ -5,6 +5,7 @@ import BadgeRound from '../badges/BadgeRound';
 import CartItem from './CartItem';
 import IconCart from '../svg/IconCart';
 import Popover from '../popups/Popover';
+import GoToCartButton from '../buttons/GoToCartButton';
 
 // normally this data would come from our API
 // in this assignment, we will assume that these two items are in the cart
@@ -27,6 +28,7 @@ const DUMMY_DATA = [
 ];
 
 const data = DUMMY_DATA.map((item) => <CartItem data={item} key={item.id} />);
+
 const CartIconContainer = styled.div((props) => ({
 	position: 'relative'
 }));
@@ -43,10 +45,22 @@ const CartIcon = () => {
 				<BadgeRound>2</BadgeRound>
 			</div>
 			<Popover isVisible={true} onClose={() => setIsActive(false)}>
+				<p
+					style={{
+						color: 'rgb(76, 76, 76)',
+						textAlign: 'center',
+						paddingBottom: '1.5em',
+						borderBottom: '1px solid rgb(200, 175, 106)',
+						marginBottom: 0
+					}}>
+					{data.length} items in your cart
+				</p>
 				{/* 
             Tip: .map() over the DUMMY_DATA here and mount <CartItem data={item} /> components 
           */}
 				{data}
+				<p>Subtotal</p>
+				<GoToCartButton>Go to Cart</GoToCartButton>
 			</Popover>
 		</CartIconContainer>
 	);

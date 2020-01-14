@@ -5,7 +5,9 @@ const PopoverContainer = styled.div((props) => ({
 	position: 'absolute',
 	top: 0,
 	right: 45,
-	width: '225px'
+	width: '225px',
+	opacity: 1
+
 	// You need to add some styles here to move the popover to the top of
 	// whatever container <Popover> is mounted in.
 	//
@@ -19,7 +21,10 @@ const ContentContainer = styled.div((props) => ({
 	position: 'relative',
 	border: '1px solid rgb(102,102,102)',
 	padding: '0.5em',
-	zIndex: 2
+	zIndex: 2,
+	backgroundColor: 'white',
+	fontFamily: 'EB Garamond',
+	textAlign: 'left'
 }));
 
 // This is an invisible overlay that takes up the entire screen. This helps

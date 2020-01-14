@@ -5,6 +5,12 @@ const Item = styled.div((props) => ({
 	borderBottom: '1px solid #EFEFEF',
 	padding: '18px 0',
 	height: '75px',
+	[`img`]: {
+		width: '30%',
+		border: '1px solid #EFEFEF',
+		float: 'left',
+		marginRight: '8px'
+	},
 	[`:hover`]: { cursor: 'pointer' }
 }));
 
@@ -19,19 +25,6 @@ const ItemText = styled.div((props) => ({
 	padding: 0,
 	['p']: { margin: 0 }
 }));
-const imgStyle = {
-	width: '30%',
-	border: '1px solid #EFEFEF',
-	float: 'left',
-	marginRight: '8px'
-};
-const priceStyle = {
-	margin: 0,
-	padding: 0,
-	fontSize: '15px',
-	letterSpacing: '0.04em',
-	textAlign: 'right'
-};
 
 const CartItem = (props) => {
 	const { data } = props;
@@ -39,15 +32,11 @@ const CartItem = (props) => {
 	// use the keys in the DUMMY_DATA objects to render a nice CartItem here
 	return (
 		<Item>
-			<img
-				src={data.thumbnail}
-				alt={'Thumbnail image of ' + data.title + ' by ' + data.artist}
-				style={imgStyle}
-			/>
+			<img src={data.thumbnail} alt={'Thumbnail image of ' + data.title + ' by ' + data.artist} />
 			<ItemText>
 				<p>{data.title}</p>
 				<p>{data.artist}</p>
-				<p style={priceStyle}>{data.price}</p>
+				<p style={{ textAlign: 'right' }}>{data.price}</p>
 			</ItemText>
 		</Item>
 	);

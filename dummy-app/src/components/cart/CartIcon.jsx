@@ -82,6 +82,7 @@ const CartIcon = () => {
             Tip: .map() over the DUMMY_DATA here and mount <CartItem data={item} /> components 
           */}
 				{data}
+
 				<Subtotal>
 					<p>Subtotal</p>
 					<p>{findSubtotalPrice(DUMMY_DATA)}</p>

@@ -66,15 +66,15 @@ const Subtotal = styled.div((props) => ({
 const CartIcon = () => {
 	// this is a React hook. If you don't know about hooks yet, don't worry about
 	// this.
-	const [ isActive, setIsActive ] = useState(false);
+	const [isActive, setIsActive] = useState(false);
 
 	return (
 		<CartIconContainer>
 			<div onClick={() => setIsActive(!isActive)}>
 				<IconCart />
-				<BadgeRound>2</BadgeRound>
+				<BadgeRound>{data.length}</BadgeRound>
 			</div>
-			<Popover isVisible={true} onClose={() => setIsActive(false)}>
+			<Popover isVisible={isActive} onClose={() => setIsActive(false)}>
 				<ItemsInCart>
 					<p>{data.length} items in your cart</p>
 				</ItemsInCart>

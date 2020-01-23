@@ -6,14 +6,16 @@ const BadgeRound = styled.div((props) => ({
 	width: '13px',
 	borderRadius: 20,
 	position: 'absolute',
-	top: '-0.95em',
-	right: '-0.6em',
+	top: '-10px',
+	right: '-8px',
 	border: '2px solid white',
 	fontFamily: 'EB Garamond',
 	fontSize: '10px',
 	textAlign: 'center',
-	lineHeight: 1.7,
-	color: 'white'
+	color: 'white',
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center'
 }));
 
 export default BadgeRound;

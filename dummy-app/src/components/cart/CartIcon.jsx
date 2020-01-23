@@ -46,7 +46,7 @@ function findSubtotalPrice(cartItems) {
 
 const CartIconContainer = styled.div((props) => ({
 	position: 'relative',
-	[`:hover`]: { cursor: 'pointer' }
+
 }));
 
 const ItemsInCart = styled.div((props) => ({
@@ -64,6 +64,12 @@ const Subtotal = styled.div((props) => ({
 	letterSpacing: '0.04em'
 }));
 
+const HoverCart = styled.div((props) => ({
+	margin: 0,
+	padding: 0,
+	[`:hover`]: { cursor: 'pointer', opacity: 0.8, }
+}))
+
 const CartIcon = () => {
 	// this is a React hook. If you don't know about hooks yet, don't worry about
 	// this.
@@ -72,7 +78,9 @@ const CartIcon = () => {
 	return (
 		<CartIconContainer>
 			<div onClick={() => setIsActive(!isActive)}>
-				<IconCart />
+				<HoverCart>
+					<IconCart />
+				</HoverCart>
 				<BadgeRound>{data.length}</BadgeRound>
 			</div>
 			<Popover isVisible={isActive} onClose={() => setIsActive(false)}>

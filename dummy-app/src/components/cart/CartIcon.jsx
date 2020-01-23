@@ -45,7 +45,8 @@ function findSubtotalPrice(cartItems) {
 }
 
 const CartIconContainer = styled.div((props) => ({
-	position: 'relative'
+	position: 'relative',
+	[`:hover`]: { cursor: 'pointer' }
 }));
 
 const ItemsInCart = styled.div((props) => ({

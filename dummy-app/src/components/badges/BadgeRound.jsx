@@ -16,6 +16,7 @@ const BadgeRound = styled.div((props) => ({
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center'
+
 }));
 
 export default BadgeRound;

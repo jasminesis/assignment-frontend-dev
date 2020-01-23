@@ -24,7 +24,8 @@ const DUMMY_DATA = [
 		thumbnail:
 			'https://ik.imagekit.io/theartling/p/products/Product/7a4f1965f92c411cba3c1b3c83398830.JPG?tr=w-255,h-255,bg-FFFFFF',
 		price: 'S$ 2,028'
-	}
+	},
+	{ id: 3, title: 'Oh Pretty Baby', artist: "IRSKIY", thumbnail: "https://ik.imagekit.io/theartling/p/products/Product/56f8b146224c4374afd0dcb18e561edd.jpg?tr=cm-pad_resize,w-611,h-611,bg-FFFFFF", price: "S$ 225" }
 ];
 
 const data = DUMMY_DATA.map((item) => <CartItem data={item} key={item.id} />);
